@@ -25,11 +25,48 @@ h1{
 
 h1 span{
   color: #1DA1F2;
-  font-size: 1.8rem;
+  font-size: 2.0rem;
   font-weight: 900;
   letter-spacing: 1px;
 }
 
 header p{
   font-size: 18px;
+  color: whitesmoke;
+}
+
+p .art{
+  color: #1DA1F2;
+}
+
+p .best{
+  color: #E11599;
+}
+
+.input{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-form{
+  display: flex;
+  flex-direction: row;
+}
+
+.my-form input{
+  flex: 1;
+  background: #ecf0f3;
+  padding: 5px;
+  height: 40px;
+  font-size: 12px;
+  text-align: left;
+  margin-top: 10px;
+  caret-color: red;
+  border-radius: 50px;
+}
+
+input::placeholder{
+  color: gray;
+  font-size: 12px;
 }
