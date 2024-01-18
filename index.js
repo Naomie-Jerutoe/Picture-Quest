@@ -171,3 +171,7 @@ function deleteImages(id) {
       console.error(`Error during deletion: ${error.message}`);
     });
 }
+
+// This line adds an event listener to the 'DOMContentLoaded' event of the document,
+// ensuring that the 'displaySavedImages' function is executed when the HTML document is fully loaded.
+document.addEventListener("DOMContentLoaded", displaySavedImages);
