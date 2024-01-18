@@ -74,3 +74,27 @@ seeMoreButton.addEventListener("click", () => {
   page++;
   imageSearch();
 });
+
+// The local URL representing the endpoint for interacting with the server's image data
+const localUrl = "http://localhost:3000/images";
+
+// Function to save an image to the server
+function saveImage(url, title, likes, event) {
+  event.preventDefault();
+  const newData = {
+    image_url: url,
+    title: title,
+    likes: likes,
+  };
+  fetch(`${localUrl}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newData),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      alert("Image has been successfully saved!");
+    });
+}
