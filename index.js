@@ -9,3 +9,8 @@ const seeMoreButton = document.querySelector(".see-more");
 
 let keyword = ""; // Variable to store the current search keyword
 let page = 1; // Variable to keep track of the current page number for pagination
+
+// Function to clear images in the cards container
+function clearImages() {
+  cards.innerHTML = "";
+}
