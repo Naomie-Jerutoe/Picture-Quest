@@ -146,3 +146,28 @@ function addLikes(id, event) {
   // Update the like count in the card
   likesElement.textContent = `likes: ${newLikes}`;
 }
+
+// Function to delete an image from the server and update the UI
+function deleteImages(id) {
+  fetch(`${localUrl}/${id}`, {
+    method: "DELETE",
+  })
+    .then((res) => {
+      if (res.ok) {
+        alert(`Image with ID ${id} has been deleted.`);
+
+        // Find and remove the deleted image card
+        const cardToRemove = document.querySelector(`.card[data-id="${id}"]`);
+        if (cardToRemove) {
+          cardToRemove.remove();
+        }
+        // Update the displayed saved images
+        displaySavedImages();
+      } else {
+        alert(`Failed to delete image with ID ${id}.`);
+      }
+    })
+    .catch((error) => {
+      console.error(`Error during deletion: ${error.message}`);
+    });
+}
