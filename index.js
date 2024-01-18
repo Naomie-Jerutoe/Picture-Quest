@@ -60,3 +60,11 @@ function imageSearch() {
       console.log(error.message);
     });
 }
+
+// Event listener for the form submit
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  page = 1;
+  clearImages();
+  imageSearch();
+});
