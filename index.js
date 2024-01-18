@@ -98,3 +98,33 @@ function saveImage(url, title, likes, event) {
       alert("Image has been successfully saved!");
     });
 }
+
+// Function to display saved images from the server
+function displaySavedImages() {
+  fetch(`${localUrl}`)
+    .then((res) => res.json())
+    .then((images) => {
+      if (page === 1) {
+        clearImages();
+      }
+      images.forEach((image) => {
+        // Creating HTML for each saved image card
+        const imageCard = `<div class="card" data-id="${image.id}">
+        <div class="card_image">
+          <img src="${image.image_url}" alt="${image.title}" title="${image.title}" />
+        </div>
+        <div class="card_title title-pink">
+        <p>likes: ${image.likes}</p>
+        <button type="button" onclick="addLikes(${image.id}, event)">
+          <i class="fa fa-heart-o" aria-hidden="true" title="Like the image"></i>
+          </button>
+          <button type="button" onclick="deleteImages(${image.id})">
+          <i class="fa fa-trash-o" aria-hidden="true" title="Delete the image"></i>
+          </button>
+        </div>
+      </div>`;
+        // Insert the saved image card into the cards container
+        cards.insertAdjacentHTML("beforeend", imageCard);
+      });
+    });
+}
