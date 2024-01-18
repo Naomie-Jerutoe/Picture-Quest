@@ -68,3 +68,9 @@ form.addEventListener("submit", (event) => {
   clearImages();
   imageSearch();
 });
+
+// Event listener for the "See More" button
+seeMoreButton.addEventListener("click", () => {
+  page++;
+  imageSearch();
+});
