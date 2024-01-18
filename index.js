@@ -128,3 +128,21 @@ function displaySavedImages() {
       });
     });
 }
+
+// Function to add likes to an image
+function addLikes(id, event) {
+  event.preventDefault();
+
+  // Find the card element by data-id attribute
+  const card = document.querySelector(`.card[data-id="${id}"]`);
+  const likesElement = card.querySelector(".card_title p");
+
+  // Extract the current number of likes from the HTML content
+  const currentLikes = parseInt(likesElement.textContent.split(":")[1].trim());
+
+  // Increment the likes by 1
+  const newLikes = currentLikes + 1;
+
+  // Update the like count in the card
+  likesElement.textContent = `likes: ${newLikes}`;
+}
