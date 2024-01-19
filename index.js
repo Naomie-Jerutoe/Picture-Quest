@@ -22,7 +22,6 @@ function imageSearch() {
   if (!keyword) {
     alert("Please enter a search term.");
   }
-
   // Constructing the URL for making requests to the Unsplash API based on user input
   const fetchUrl = `https://api.unsplash.com/search/photos?page=${page}&query=${keyword}&client_id=${access_key}&per_page=12`;
 
@@ -104,7 +103,7 @@ function displaySavedImages() {
   fetch(`${localUrl}`)
     .then((res) => res.json())
     .then((images) => {
-      if (page === 1) {
+      if (page === 1 || page > 1) {
         clearImages();
       }
       images.forEach((image) => {
