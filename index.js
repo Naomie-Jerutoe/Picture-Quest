@@ -56,6 +56,7 @@ function imageSearch() {
       }
     })
     .catch((error) => {
+      // Handle and log errors during the search process
       console.log(error.message);
     });
 }
@@ -144,6 +145,38 @@ function addLikes(id, event) {
 
   // Update the like count in the card
   likesElement.textContent = `likes: ${newLikes}`;
+  updateLikesOnServer(id, newLikes);
+}
+
+//function that updates the number of likes for a specific image on the server
+function updateLikesOnServer(id, newLikes) {
+  // Create data object with the new number of likes
+  const updatedData = {
+    likes: newLikes,
+  };
+
+  // Send a PATCH request to update the likes on the server
+  fetch(`${localUrl}/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatedData),
+  })
+    .then((response) => {
+      // Check if the response is successful
+      if (!response.ok) {
+        throw new Error(`Failed to update likes. Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      // Notify the user about the successful update
+      alert(`Likes for image with ID ${imageId} updated successfully.`, data);
+    })
+    .catch((error) => {
+      console.error("Error updating likes:", error.message);
+    });
 }
 
 // Function to delete an image from the server and update the UI
