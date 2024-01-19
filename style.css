@@ -5,11 +5,21 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Mochiy Pop One', sans-serif;
-  background: blueviolet;
+  background: darkslateblue
 }
 
 .container{
-background: blueviolet;
+  background:darkmagenta;
+  animation: pulse 15s infinite;
+}
+
+@keyframes pulse{
+  0%{
+    background-color: darkmagenta;
+  }
+  100%{
+    background-color: darkslateblue;
+  }
 }
 
 header{
@@ -18,7 +28,7 @@ header{
 
 h1{
   color:#E11599;
-  font-size: 1.8rem;
+  font-size: 2.0rem;
   font-weight: 900;
   letter-spacing: 1px;
 }
@@ -43,6 +53,24 @@ p .best{
   color: #E11599;
 }
 
+p .text{
+  width: 12%;
+  top:10px;
+  position: absolute;
+  left: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: #E11599;
+  word-spacing: 5px;
+}
+
+.save-image{
+  width: 12%;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}
+
 .input{
   display: flex;
   align-items: center;
@@ -55,7 +83,6 @@ p .best{
 }
 
 .my-form input{
-  flex: 1;
   background: #ecf0f3;
   padding: 5px;
   height: 40px;
@@ -72,7 +99,6 @@ input::placeholder{
 }
 
 input, button{
-  width: 30%;
   padding: 0;
   border: none;
   outline: none;
@@ -83,6 +109,7 @@ button {
   margin-top: 10px;
   background: #1DA1F2;
   height: 40px;
+  width: 20%;
   border-radius: 20px;
   cursor: pointer;
   font-weight: 900;
@@ -107,7 +134,7 @@ button:hover {
   width: 300px;
   height: 300px;
   border-radius: 40px;
-box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
   cursor: pointer;
   transition: 0.4s;
 }
